@@ -65,7 +65,7 @@ for line in p.stdout:
 # gather disk information
 for line in command_result:
     # regex = r"^\d+:\s+ID\s+=\s\w{3}_(\d_\d_disk|disk)_\d+" # Full string
-    regex = r"\w{3}_(\d_\d_disk|disk)_\d+"
+    regex = r"(\w{3}_(\d_\d_disk|disk)_\d+)|(DISK_\w{3}_\d+_\d+)"
     if re.search(regex, line):
         extract = re.search(regex, line)
         disk_id_list.append(extract.group(0))
